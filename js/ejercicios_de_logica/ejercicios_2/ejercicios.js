@@ -133,26 +133,74 @@ const parImpar = (value) => {
 // Tabla de multiplicar de un número introducido por pantalla.
 
 const tabla = (num) => {
-  while(isNaN(num)){
-    num = prompt("Ingresa un número.")
+  while (isNaN(num)) {
+    num = prompt("Ingresa un número.");
   }
 
-  console.info(`Tabla del número ${num}:`)
+  console.info(`Tabla del número ${num}:`);
   for (let i = 1; i < 11; i++) {
-    console.log(`x${i} ${num * i}`)
+    console.log(`x${i} ${num * i}`);
   }
-}
+};
 
 // tabla()
 
-// Calculadora: Pida dos números por pantalla; Si el número introducido esta mal que vuelva a pedir; En el cuerpo de la pagina, en una alerta y por la consola el resultado de sumar, restar, multiplicar y dividir esas dos cifras; refactorizar el codigo para encapsularlo todo en funciones reutilizables.
+// Calculadora: Pida dos números por pantalla; Si el número introducido esta mal que vuelva a pedir; resultado de sumar, restar, multiplicar y dividir esas dos cifras.
 
+const calculator = (num1, num2) => {
+  while (isNaN(num1) || num1 <= 0) {
+    num1 = +prompt("Write a number.");
+  }
 
+  while (isNaN(num2) || num2 <= 0) {
+    num2 = +prompt("Write another number.");
+  }
+  if (num1 && num2 !== NaN) {
+    return console.info(
+      `addition: ${num1 + num2}\nsubtraction: ${num1 - num2}\nmultiplication: ${
+        num1 * num2
+      }\ndivision: ${num1 / num2}`
+    );
+  }
+};
+
+// calculator()
 
 /*Programa que pida 6 números por pantalla y los introduzca en un array
 Mostrar el array entero (todos sus elementos) en el cuerpo de la pagina y en la consola (usando funciones)
 Ordenar el array y mostrarlo
 Invertir el orden del array y mostrarlo
-Mostrar cuantos elementos tiene el array*/
+Mostrar cuantos elementos tiene el array
+valor introducido por el usuario que nos diga si se encuentra en el array o no*/
 
-// Busqueda de un valor introducido por el usuario que nos diga si se encuentra en el array o no.
+let arrNums = [];
+
+const arrr = (num1, num2, num3, num4, num5, num6, insidearr) => {
+
+  const testNum = (num) => {
+    while (isNaN(num)) {
+      num = +prompt("Write a number.")
+    }
+    if (num !== NaN) {
+      arrNums.push(num)
+    }
+  }
+
+  testNum(num1)
+  testNum(num2)
+  testNum(num3)
+  testNum(num4)
+  testNum(num5)
+  testNum(num6)
+
+  insidearr = prompt("Enter the element to search.")
+
+  let isInside = arrNums.includes(insidearr)
+
+  return (insidearr) 
+  ? console.info(`Ordered array: ${arrNums.sort((a,b) => a - b)}\nReversed array: ${arrNums.sort((a,b) => a - b).reverse()}\nArray elements: ${arrNums.length}\nThe element ${insidearr} is inside the array: ${isInside}`)
+  : console.info(`Ordered array: ${arrNums.sort((a,b) => a - b)}\nReversed array: ${arrNums.sort((a,b) => a - b).reverse()}\nArray elements: ${arrNums.length}`)
+
+};
+
+//arrr();
