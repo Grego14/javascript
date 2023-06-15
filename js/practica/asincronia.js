@@ -25,3 +25,25 @@ for (let i = 0; i < 10;i++) {
 }
 
 console.clear() */
+
+// Callbacks
+
+function cC(value, callback) {
+  setTimeout(() => {
+    callback(value, value * value);
+  }, 0 || Math.random() * 1000);
+}
+
+cC(2, (value, result) => {
+  console.log("Inicia el callback.");
+  console.info(`${value}, ${result}`);
+  cC(4, (value, result) => {
+    console.info(`${value}, ${result}`);
+    cC(6, (value, result) => {
+      console.info(`${value}, ${result}`);
+      cC(8, (value, result) => {
+        console.info(`${value}, ${result}`);
+      });
+    });
+  });
+});
