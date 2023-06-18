@@ -1,5 +1,22 @@
+# asincronia
 asincronia.html
 asincronia.js
 asincronia.css
 
 .gitignore
+
+.eslintrc.js
+.prettierrc.js
+
+index.js
+
+# nuevos-tipos
+nuevos-tipos.js
+nuevos-tipos.html
+
+/src/js/ejercicios_de_logica
+
+/node_modules
+
+package-lock.json
+package.json
